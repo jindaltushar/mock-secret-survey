@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: #333;
+}
+
+
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.navbar svg {
+  margin-top:'100px'
+}
+
+.navbar h1 {
+  color: #252E55;
+}
+.navbar .NavLinks {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.content {
+  /* max-width: 600px; */
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.survey-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.survey-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.survey-preview h2 {
+  font-size: 20px;
+  color: #252E55;
+  margin-bottom: 8px;
+}
+
+main {
+	padding: 1.5em 0;
+}
+.ip {
+  width: 16em;
+  height: 8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Center content inside the box */
+  padding: 20px
+}
+
+.ip__track {
+	stroke: hsl(var(--hue),90%,90%);
+	transition: stroke var(--trans-dur);
+}
+.ip__worm1,
+.ip__worm2 {
+	animation: worm1 2s linear infinite;
+}
+.ip__worm2 {
+	animation-name: worm2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),90%,5%);
+		--fg: hsl(var(--hue),90%,95%);
+	}
+	.ip__track {
+		stroke: hsl(var(--hue),90%,15%);
+	}
+}
+
+/* Animation */
+@keyframes worm1 {
+	from {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1);
+		stroke-dashoffset: -358;
+	}
+	50.01% {
+		animation-timing-function: linear;
+		stroke-dashoffset: 358;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes worm2 {
+	from {
+		stroke-dashoffset: 358;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -358;
+	}
+}
+
+.answer-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.answer-button:hover {
+  background-color: #0056b3;
+}
+
+
+.survey-preview a {
+  text-decoration: none;
+}
+
+.active-NavLink {
+  color: white;
+  background-color: #252E55;
+  border-radius: 8px;
+}
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #252E55;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+/* SurveyForm.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent black backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal overlay is on top of other content */
+}
+
+.modal-content-loading {
+  padding: 20px;
+}
+
+
+/* view answered survey list  */
+
+/* App.css */
+
+/* Styling for the main container */
+.view-ans {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Styling for the survey list */
+.survey-list {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.survey-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.survey-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.survey-list li {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.survey-list li:hover {
+  background-color: #dcdcdc;
+}
+
+/* Styling for the survey details */
+.survey-details {
+  width: 70%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.survey-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.survey-details p {
+  margin-bottom: 10px;
+}
+
+.survey-responses ul {
+  list-style: none;
+  padding: 0;
+}
+
+.survey-responses li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Center the modal overlay */
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Styling for the modal content */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Styles for the message icon */
+.message-icon {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.message-icon i {
+  font-size: 24px;
+}
+
+/* Navbar.css */
+
+.svg-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Navbar.css */
+
+/* Apply white fill to the SVG inside active NavLink */
+.active-NavLink .svg-container svg {
+  fill: white;
+}
+
+
+/* Navbar.css */
+
+.svg-container {
+  position: relative;
+  width: 24px;
+  height: 28px;
+}
+
+.dot-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2; /* Place the dot container above the SVG */
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dot.active {
+  display: block;
+}
+
